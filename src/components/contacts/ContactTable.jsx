@@ -1,7 +1,6 @@
 
-"use client";
+'use client';
 
-import React from 'react';
 import { MoreHorizontal, Mail, Phone, ExternalLink } from 'lucide-react';
 
 const ContactTable = () => {
@@ -39,9 +38,9 @@ const ContactTable = () => {
                             </td>
                             <td className="p-4 text-gray-600">{contact.role}</td>
                             <td className="p-4">
-                                <span className={`px-3 py-1 rounded-lg text-xs font-bold border ${contact.status === 'Active' ? 'bg-green-50 text-green-600 border-green-100' :
-                                        contact.status === 'Lead' ? 'bg-blue-50 text-blue-600 border-blue-100' :
-                                            'bg-gray-50 text-gray-500 border-gray-100'
+                                <span className={`px-3 py-1 rounded-lg text-xs font-bold border ${contact.status === 'Active' ? 'bg-pulsai-green/10 text-pulsai-green border-pulsai-green/20' :
+                                    contact.status === 'Lead' ? 'bg-blue-50 text-blue-600 border-blue-100' :
+                                        'bg-gray-50 text-gray-500 border-gray-100'
                                     }`}>
                                     {contact.status}
                                 </span>
@@ -51,7 +50,7 @@ const ContactTable = () => {
                             <td className="p-4">
                                 <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                     <button className="p-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"><Mail size={16} /></button>
-                                    <button className="p-2 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors"><Phone size={16} /></button>
+                                    <button className="p-2 hover:bg-pulsai-green/10 hover:text-pulsai-green rounded-lg transition-colors"><Phone size={16} /></button>
                                     <button className="p-2 hover:bg-gray-100 text-gray-400 rounded-lg transition-colors"><MoreHorizontal size={16} /></button>
                                 </div>
                             </td>

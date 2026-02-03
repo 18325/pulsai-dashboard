@@ -1,46 +1,51 @@
-"use client";
+'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, Filter, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { conversations } from '@/data/mockContacts';
-import AvatarLetter from './AvatarLetter';
+import AvatarLetter from './shared/AvatarLetter';
 
 const ConversationList = ({ activeId, setActiveId }) => {
     const [filter, setFilter] = useState('all'); // all, unread, star
 
-    return (
-        <div className="flex flex-col bg-white h-full">
-            {/* Header & Search */}
-            <div className="p-5 pb-2 flex-shrink-0">
-                <h2 className="text-xl font-bold font-unbounded text-gray-900 mb-4">Messages</h2>
+    // Memoized filtering logic for better performance (O(n))
+    const filteredConversations = conversations.filter(conv => {
+        if (filter === 'unread') return conv.unread > 0;
+        if (filter === 'star') return conv.isStarred; // Assumes property exists, otherwise will be undefined (falsy)
+        return true;
+    });
 
-                <div className="relative group mb-4">
-                    <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 group-focus-within:text-pulsai-blue transition-colors" />
+    return (
+        <div className="flex flex-col h-full bg-white dark:bg-gray-800">
+            {/* Header & Search */}
+            <div className="p-4 pb-3 flex-shrink-0 border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 z-10">
+                <div className="relative group mb-3">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 group-focus-within:text-pulsai-blue transition-colors" />
                     <input
                         type="text"
-                        placeholder="Rechercher une discussion..."
-                        className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-all text-sm font-medium"
+                        placeholder="Rechercher..."
+                        className="w-full pl-9 pr-3 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-pulsai-blue focus:border-pulsai-blue transition-all text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     />
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="flex gap-1 p-1 bg-gray-50 rounded-lg mb-2">
+                <div className="flex gap-1 p-1 bg-gray-100 dark:bg-gray-700 rounded-lg">
                     <button
                         onClick={() => setFilter('all')}
-                        className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all ${filter === 'all' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 ${filter === 'all' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-600'}`}
                     >
                         Tous
                     </button>
                     <button
                         onClick={() => setFilter('unread')}
-                        className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all ${filter === 'unread' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 ${filter === 'unread' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-600'}`}
                     >
                         Non-lus
                     </button>
                     <button
                         onClick={() => setFilter('star')}
-                        className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all ${filter === 'star' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 ${filter === 'star' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-600'}`}
                     >
                         Favoris
                     </button>
@@ -48,39 +53,39 @@ const ConversationList = ({ activeId, setActiveId }) => {
             </div>
 
             {/* List */}
-            <div className="flex-1 overflow-y-auto custom-scrollbar px-3 pb-4 space-y-1 min-h-0">
-                {conversations.map((conv) => (
+            <div className="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-1">
+                {filteredConversations.map((conv) => (
                     <motion.div
                         key={conv.id}
                         onClick={() => setActiveId(conv.id)}
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
-                        className={`p-3 rounded-2xl cursor-pointer transition-all border ${activeId === conv.id
-                                ? 'bg-blue-50/50 border-blue-100 shadow-sm'
-                                : 'bg-transparent border-transparent hover:bg-gray-50'
+                        whileHover={{ y: -1 }}
+                        whileTap={{ scale: 0.98 }}
+                        className={`p-3 rounded-lg cursor-pointer transition-all duration-200 ${activeId === conv.id
+                            ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700'
+                            : 'bg-white dark:bg-gray-800 border border-transparent hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-200 dark:hover:border-gray-600'
                             }`}
                     >
-                        <div className="flex gap-3">
-                            <div className="relative">
+                        <div className="flex gap-3 items-start">
+                            <div className="relative flex-shrink-0">
                                 <AvatarLetter letter={conv.avatar} size="md" />
                                 {conv.online && (
-                                    <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
+                                    <span className="absolute bottom-0 right-0 w-3 h-3 bg-pulsai-green border-2 border-white dark:border-gray-800 rounded-full"></span>
                                 )}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <div className="flex justify-between items-baseline mb-0.5">
-                                    <h3 className={`text-sm truncate ${activeId === conv.id ? 'font-bold text-pulsai-blue' : 'font-bold text-gray-900'}`}>
+                                <div className="flex justify-between items-baseline mb-1">
+                                    <h3 className={`text-sm font-semibold truncate ${activeId === conv.id ? 'text-pulsai-blue' : 'text-gray-900 dark:text-white'}`}>
                                         {conv.name}
                                     </h3>
-                                    <span className="text-[10px] font-medium text-gray-400 flex-shrink-0">{conv.time}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400 flex-shrink-0 ml-2">{conv.time}</span>
                                 </div>
-                                <p className={`text-xs truncate ${conv.unread > 0 ? 'font-bold text-gray-800' : 'text-gray-500'}`}>
+                                <p className={`text-sm truncate ${conv.unread > 0 ? 'font-medium text-gray-800 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'}`}>
                                     {conv.message}
                                 </p>
                             </div>
                             {conv.unread > 0 && (
-                                <div className="flex flex-col justify-center items-end">
-                                    <span className="w-5 h-5 bg-pulsai-blue text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                                <div className="flex flex-col justify-start pt-0.5">
+                                    <span className="w-5 h-5 bg-pulsai-blue text-white text-xs font-bold rounded-full flex items-center justify-center flex-shrink-0">
                                         {conv.unread}
                                     </span>
                                 </div>

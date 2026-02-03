@@ -21,7 +21,7 @@ export const mockContacts = {
             { id: 4, text: "Merci pour votre aide, le problème est réglé !", sender: "user", time: "14:30", read: true },
         ],
         tickets: [
-            { id: "#TKT-245", status: "Résolu", description: "Problème de facturation sur la commande #4402", statusColor: "green" },
+            { id: "#TKT-245", status: "Résolu", description: "Problème de facturation sur la commande #4402", statusColor: "pulsai-green" },
             { id: "#TKT-248", status: "En cours", description: "Demande d'intégration API pour le nouveau module", statusColor: "orange" },
         ]
     },
@@ -73,8 +73,8 @@ export const mockContacts = {
             { id: 4, text: "Je vais réinitialiser votre mot de passe. Vous allez recevoir un email.", sender: "me", time: "Hier 16:30", read: true },
         ],
         tickets: [
-            { id: "#TKT-289", status: "Résolu", description: "Problème d'accès au compte utilisateur", statusColor: "green" },
-            { id: "#TKT-267", status: "Résolu", description: "Configuration des permissions d'équipe", statusColor: "green" },
+            { id: "#TKT-289", status: "Résolu", description: "Problème d'accès au compte utilisateur", statusColor: "pulsai-green" },
+            { id: "#TKT-267", status: "Résolu", description: "Configuration des permissions d'équipe", statusColor: "pulsai-green" },
         ]
     },
     4: {
@@ -99,7 +99,7 @@ export const mockContacts = {
             { id: 5, text: "C'est parfait, on part là-dessus. Merci !", sender: "user", time: "Hier 10:30", read: true },
         ],
         tickets: [
-            { id: "#TKT-198", status: "Résolu", description: "Question sur intégration OAuth API", statusColor: "green" },
+            { id: "#TKT-198", status: "Résolu", description: "Question sur intégration OAuth API", statusColor: "pulsai-green" },
         ]
     },
     5: {

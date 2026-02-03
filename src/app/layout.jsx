@@ -20,14 +20,20 @@ export const metadata = {
   description: 'Gérez vos interactions clients avec l\'IA',
 };
 
+import { Providers } from './providers';
+
+// ... (imports)
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
-      <body className={`${ubuntu.variable} ${unbounded.variable} font-sans bg-[#F9FAFB] text-pulsai-gray-dark overflow-x-hidden selection:bg-pulsai-blue selection:text-white`}>
-        <MainLayout>
-          {children}
-        </MainLayout>
-        <PulsBotWidget />
+    <html lang="fr" suppressHydrationWarning>
+      <body className={`${ubuntu.variable} ${unbounded.variable} font-sans overflow-x-hidden selection:bg-pulsai-blue selection:text-white`}>
+        <Providers>
+          <MainLayout>
+            {children}
+          </MainLayout>
+          <PulsBotWidget />
+        </Providers>
       </body>
     </html>
   );

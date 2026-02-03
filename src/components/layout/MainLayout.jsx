@@ -1,7 +1,7 @@
 
-"use client";
+'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Sidebar from './Sidebar';
 import TopBar from './TopBar';
 
@@ -9,7 +9,7 @@ const MainLayout = ({ children }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <div className="flex min-h-screen bg-gradient-to-br from-[#F9FAFB] via-blue-50/20 to-[#EEF2FF]">
+        <div className="flex min-h-screen bg-gradient-to-br from-[#F9FAFB] via-blue-50/20 to-[#EEF2FF] dark:from-background dark:via-background dark:to-background transition-colors duration-300">
             {/* Sidebar - Passed state for mobile visibility */}
             <Sidebar isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
 
@@ -28,7 +28,7 @@ const MainLayout = ({ children }) => {
                     <div className="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] bg-pulsai-green/10 rounded-full blur-3xl" />
                 </div>
 
-                <div className="relative z-10 flex flex-col h-screen overflow-x-hidden min-w-0">
+                <div className="relative z-10 flex flex-col min-h-screen md:min-h-auto md:h-screen overflow-x-hidden min-w-0">
                     {/* TopBar - Passed setter for mobile toggle */}
                     <TopBar onMenuClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
 

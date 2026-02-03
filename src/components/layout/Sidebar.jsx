@@ -1,7 +1,6 @@
 
-"use client";
+'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -16,6 +15,7 @@ import {
     X
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Logo from './Logo';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
     const pathname = usePathname();
@@ -26,28 +26,21 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         { icon: <Ticket size={22} />, label: 'Tickets', path: '/tickets' },
         { icon: <Megaphone size={22} />, label: 'Campagnes', path: '/campaigns' },
         { icon: <Users size={22} />, label: 'Contacts', path: '/contacts' },
-        { icon: <BarChart2 size={22} />, label: 'Analytics', path: '/analytics' },
+        { icon: <BarChart2 size={22} />, label: 'Analytiques', path: '/analytics' },
     ];
 
     return (
         <aside
-            className={`fixed inset-y-0 left-0 z-50 w-72 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-2xl flex flex-col p-6 transition-transform duration-300 ease-in-out md:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+            className={`fixed inset-y-0 left-0 z-50 w-72 bg-white/80 dark:bg-card backdrop-blur-xl border-r border-white/20 dark:border-border shadow-2xl flex flex-col p-6 transition-all duration-300 ease-in-out md:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}
         >
             {/* Logo & Close Button */}
             <div className="flex items-center justify-between mb-12">
-                <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-tr from-pulsai-blue to-cyan-400 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-pulsai-blue/20">
-                        <span className="text-xl">P</span>
-                    </div>
-                    <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pulsai-blue to-indigo-600 font-sans">
-                        PulsAI
-                    </span>
-                </div>
+                <Logo />
                 {/* Close Button (Mobile Only) */}
                 <button
                     onClick={() => setIsOpen(false)}
-                    className="md:hidden p-2 text-gray-500 hover:text-red-500 transition-colors"
+                    className="md:hidden p-2 text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
                 >
                     <X size={24} />
                 </button>
@@ -71,10 +64,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                                 )}
 
                                 <div className="relative z-10 flex items-center gap-4">
-                                    <span className={`transition-colors duration-200 ${isActive ? 'text-white' : 'text-gray-400 group-hover:text-pulsai-blue'}`}>
+                                    <span className={`transition-colors duration-200 ${isActive ? 'text-white' : 'text-gray-400 group-hover:text-pulsai-blue dark:text-gray-400 dark:group-hover:text-blue-400'}`}>
                                         {item.icon}
                                     </span>
-                                    <span className={`font-medium tracking-wide transition-colors duration-200 ${isActive ? 'text-white font-bold' : 'text-pulsai-gray-dark group-hover:text-pulsai-blue'}`}>
+                                    <span className={`font-medium tracking-wide transition-colors duration-200 ${isActive ? 'text-white font-bold' : 'text-pulsai-gray-dark group-hover:text-pulsai-blue dark:text-gray-200 dark:group-hover:text-white'}`}>
                                         {item.label}
                                     </span>
                                 </div>
@@ -85,14 +78,14 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             </nav>
 
             {/* Settings / Bottom */}
-            <div className="mt-auto space-y-2 pt-6 border-t border-gray-100/50">
+            <div className="mt-auto space-y-2 pt-6 border-t border-gray-100/50 dark:border-border/50">
                 <Link href="/settings" onClick={() => setIsOpen(false)}>
-                    <div className="flex items-center gap-4 px-4 py-3 rounded-2xl text-pulsai-gray-dark hover:bg-white/50 hover:text-pulsai-blue transition-all cursor-pointer">
-                        <Settings size={22} className="text-gray-400 group-hover:text-pulsai-blue" />
+                    <div className="flex items-center gap-4 px-4 py-3 rounded-2xl text-pulsai-gray-dark dark:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-800/50 hover:text-pulsai-blue dark:hover:text-white transition-all cursor-pointer">
+                        <Settings size={22} className="text-gray-400 dark:text-gray-500 group-hover:text-pulsai-blue dark:group-hover:text-blue-400" />
                         <span className="font-medium">Paramètres</span>
                     </div>
                 </Link>
-                <button className="w-full flex items-center gap-4 px-4 py-3 rounded-2xl text-red-400 hover:bg-red-50 hover:text-red-500 transition-all cursor-pointer">
+                <button className="w-full flex items-center gap-4 px-4 py-3 rounded-2xl text-red-400 hover:bg-red-50 dark:hover:bg-red-900/10 hover:text-red-500 transition-all cursor-pointer">
                     <LogOut size={22} />
                     <span className="font-medium">Déconnexion</span>
                 </button>
