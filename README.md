@@ -331,7 +331,7 @@ Ce projet s'inspire des meilleures pratiques de:
 ## 👨‍💻 Développeur
 
 **Maurille KOMI**  
-[GitHub](https://github.com/18325) |
+[GitHub](https://github.com/18325) 
 
 ---
 

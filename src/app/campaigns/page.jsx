@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -44,19 +43,20 @@ export default function CampaignsPage() {
 
     return (
         <div className='flex flex-col space-y-6 pb-10'>
-            <div className='flex items-center justify-between'>
-                <div>
-                    <h1 className='text-4xl font-bold font-unbounded text-gray-900 dark:text-white'>Campagnes</h1>
-                    <p className='text-gray-500 dark:text-gray-400 mt-1'>Gérez et analysez vos campagnes marketing.</p>
+            <div className='flex items-center justify-between gap-2 sm:gap-4'>
+                <div className='flex-1 min-w-0'>
+                    <h1 className='text-xl sm:text-4xl font-bold font-unbounded text-gray-900 dark:text-white'>Campagnes</h1>
+                    <p className='text-gray-500 dark:text-gray-400 mt-1 text-xs sm:text-base hidden sm:block'>Gérez et analysez vos campagnes marketing.</p>
                 </div>
                 <button
                     onClick={handleNewCampaign}
-                    className='px-6 py-3 bg-pulsai-blue hover:bg-pulsai-blue/90 text-white rounded-xl font-bold transition-all shadow-lg shadow-pulsai-blue/20 hover:shadow-xl hover:shadow-pulsai-blue/30 flex items-center gap-2'
+                    className='px-3 py-2.5 sm:px-6 sm:py-3 bg-pulsai-blue hover:bg-pulsai-blue/90 text-white rounded-xl font-bold transition-all shadow-lg shadow-pulsai-blue/20 flex items-center gap-2 whitespace-nowrap text-sm sm:text-base'
+                    title='Nouvelle campagne'
                 >
                     <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 4v16m8-8H4' />
                     </svg>
-                    Nouvelle campagne
+                    <span className='hidden sm:inline'>Nouvelle campagne</span>
                 </button>
             </div>
 
@@ -112,14 +112,16 @@ export default function CampaignsPage() {
                         ))}
                     </div>
                 ) : (
-                    <div className='space-y-0'>
-                        {filteredCampaigns.map((campaign) => (
-                            <CampaignListItem
-                                key={campaign.id}
-                                campaign={campaign}
-                                onClick={() => handleCampaignClick(campaign)}
-                            />
-                        ))}
+                    <div className='overflow-x-auto'>
+                        <div className='space-y-0 min-w-[700px]'>
+                            {filteredCampaigns.map((campaign) => (
+                                <CampaignListItem
+                                    key={campaign.id}
+                                    campaign={campaign}
+                                    onClick={() => handleCampaignClick(campaign)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 )}
 

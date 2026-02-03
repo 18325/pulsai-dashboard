@@ -42,7 +42,7 @@ const TopBar = ({ onMenuClick }) => {
                     <div className="hidden md:block flex-1"></div>
                 </div>
 
-                <div className="flex gap-1 sm:gap-2">
+                <div className="flex items-center gap-1 sm:gap-2">
                     <ThemeToggle />
                     <NotificationDropdown 
                         isOpen={isNotifOpen}

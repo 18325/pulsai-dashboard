@@ -15,9 +15,9 @@ export default function NotificationDropdown({ isOpen, onToggle, dropdownRef, no
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={onToggle}
-                className="relative p-2 text-gray-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors cursor-pointer rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="relative p-2.5 text-gray-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors cursor-pointer rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-                <Bell size={22} strokeWidth={2} />
+                <Bell size={20} strokeWidth={2} />
                 <span className="absolute top-2 right-2.5 h-2.5 w-2.5 bg-pulsai-blue border-2 border-[#F8FAFC] dark:border-gray-800 rounded-full" />
             </button>
 

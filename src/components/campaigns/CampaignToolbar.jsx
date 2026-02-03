@@ -84,8 +84,8 @@ export default function CampaignToolbar({
     ];
 
     return (
-        <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-card p-2 rounded-2xl border border-gray-100 dark:border-border shadow-sm transition-colors">
-            <div className="relative flex-[2] min-w-[300px]">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-white dark:bg-card p-2 rounded-2xl border border-gray-100 dark:border-border shadow-sm transition-colors">
+            <div className="relative flex-1 min-w-0">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                     type="text"
@@ -96,7 +96,7 @@ export default function CampaignToolbar({
                 />
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2 md:gap-3">
                 <CustomSelect
                     value={selectedStatus}
                     onChange={onStatusChange}

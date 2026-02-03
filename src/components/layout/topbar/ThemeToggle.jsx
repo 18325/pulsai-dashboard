@@ -20,10 +20,10 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 text-gray-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors cursor-pointer rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="p-2.5 text-gray-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors cursor-pointer rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
             title={theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'}
         >
-            {theme === 'dark' ? <Sun size={22} strokeWidth={2} /> : <Moon size={22} strokeWidth={2} />}
+            {theme === 'dark' ? <Sun size={20} strokeWidth={2} /> : <Moon size={20} strokeWidth={2} />}
         </button>
     );
 }

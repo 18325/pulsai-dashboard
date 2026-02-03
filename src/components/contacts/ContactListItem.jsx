@@ -26,7 +26,7 @@ export default function ContactListItem({ contact, onClick, onEdit, onDelete, on
     return (
         <div className='flex items-center gap-3 p-3 border-b border-gray-100 hover:bg-gray-50 transition-all'>
             {/* Nom */}
-            <div className='flex items-center gap-2 w-[180px]'>
+            <div className='flex items-center gap-2 w-[180px] flex-shrink-0'>
                 <div className='w-7 h-7 rounded-lg bg-gradient-to-br from-pulsai-blue to-pulsai-blue/70 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0'>
                     {contact.avatar}
                 </div>

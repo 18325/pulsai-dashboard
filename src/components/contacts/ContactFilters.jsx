@@ -42,9 +42,9 @@ export default function ContactFilters({
     const selectedTagOption = tags.find(t => t.value === (selectedTag || 'all'));
 
     return (
-        <div className='flex items-center justify-between w-full gap-4'>
-            {/* Barre de recherche à gauche */}
-            <div className='relative flex-1 max-w-md'>
+        <div className='flex flex-col lg:flex-row items-stretch lg:items-center gap-4 w-full'>
+            {/* Barre de recherche */}
+            <div className='relative flex-1 min-w-0'>
                 <Search className='absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5' />
                 <input
                     type='text'
@@ -56,7 +56,7 @@ export default function ContactFilters({
             </div>
 
             {/* Select Tag - Style moderne compact */}
-            <div className='relative z-50' ref={dropdownRef}>
+            <div className='relative z-50 flex-shrink-0' ref={dropdownRef}>
                 <button
                     type='button'
                     onClick={() => setIsTagDropdownOpen(!isTagDropdownOpen)}
@@ -98,13 +98,13 @@ export default function ContactFilters({
             </div>
 
             {/* Filtres à droite */}
-            <div className='flex gap-2'>
+            <div className='flex flex-wrap gap-2 justify-start lg:justify-end'>
                 {filters.map((filter) => (
                     <button
                         key={filter.value}
                         onClick={() => onFilterChange(filter.value)}
-                        className={`px-6 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${selectedFilter === filter.value
-                                ? 'bg-pulsai-green/5 dark:bg-pulsai-green/10 backdrop-blur-sm text-gray-900 dark:text-white border border-pulsai-green/20 dark:border-pulsai-green/30'
+                        className={`px-3 sm:px-6 py-2 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer flex-shrink-0 ${selectedFilter === filter.value
+                                ? 'bg-pulsai-blue/10 dark:bg-pulsai-blue/20 backdrop-blur-sm text-pulsai-blue dark:text-blue-400 border border-pulsai-blue/30 dark:border-pulsai-blue/40'
                                 : 'bg-transparent text-gray-600 dark:text-gray-400 border border-transparent hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
                             }`}
                     >

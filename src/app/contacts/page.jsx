@@ -95,30 +95,32 @@ export default function ContactsPage() {
                     </div>
                 ) : (
                     <div className="overflow-x-auto">
-                        <div className='hidden md:flex items-center gap-3 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl mb-2 text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide'>
-                            <div className='w-[180px]'>Nom</div>
-                            <div className='w-[200px]'>Email</div>
-                            <div className='w-[130px]'>Téléphone</div>
-                            <div className='w-[100px]'>Segment</div>
-                            <div className='w-[130px]'>Localisation</div>
-                            <div className='w-[100px]'>Statut</div>
-                            <div className='w-[110px]'>Dernier contact</div>
-                            <div className='w-[80px] text-right'>Actions</div>
-                        </div>
-                        <div className="md:hidden text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                            Contacts
-                        </div>
-                        <div className='space-y-0'>
-                            {filteredContacts.map((contact) => (
-                                <ContactListItem
-                                    key={contact.id}
-                                    contact={contact}
-                                    onClick={() => setSelectedContact(contact)}
-                                    onEdit={() => {}}
-                                    onDelete={() => {}}
-                                    onView={setSelectedContact}
-                                />
-                            ))}
+                        <div className='min-w-[900px]'>
+                            <div className='hidden md:flex items-center gap-3 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl mb-2 text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide'>
+                                <div className='w-[180px]'>Nom</div>
+                                <div className='w-[200px]'>Email</div>
+                                <div className='w-[130px]'>Téléphone</div>
+                                <div className='w-[100px]'>Segment</div>
+                                <div className='w-[130px]'>Localisation</div>
+                                <div className='w-[100px]'>Statut</div>
+                                <div className='w-[110px]'>Dernier contact</div>
+                                <div className='w-[80px] text-right'>Actions</div>
+                            </div>
+                            <div className="md:hidden text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                                Contacts
+                            </div>
+                            <div className='space-y-0'>
+                                {filteredContacts.map((contact) => (
+                                    <ContactListItem
+                                        key={contact.id}
+                                        contact={contact}
+                                        onClick={() => setSelectedContact(contact)}
+                                        onEdit={() => {}}
+                                        onDelete={() => {}}
+                                        onView={setSelectedContact}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )}
