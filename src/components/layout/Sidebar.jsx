@@ -35,7 +35,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 }`}
         >
             {/* Logo & Close Button */}
-            <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center justify-between mb-12 px-8">
                 <Logo />
                 {/* Close Button (Mobile Only) */}
                 <button

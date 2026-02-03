@@ -109,7 +109,7 @@ pulsai-dashboard/
 
 ```bash
 # 1. Cloner le repository
-git clone https://github.com/votre-username/pulsai-dashboard.git
+git clone https://github.com/18325/pulsai-dashboard.git
 cd pulsai-dashboard
 
 # 2. Installer les dépendances
@@ -212,6 +212,11 @@ Configuration complète:
 ### Dashboard Principal
 
 ![Dashboard](./screenshots/dashboard.png)
+![Dashboard_black](./screenshots/dashboard_black.png)
+
+### Messagerie
+
+![Conversations](./screenshots/conversations.png)
 
 ### Gestion des Tickets (Vue Kanban)
 
@@ -219,19 +224,30 @@ Configuration complète:
 
 ### Campagnes Marketing
 
-![Campaigns](./screenshots/campaigns.png)
+![Campagnes](./screenshots/campagnes.png)
+
+### Contacts
+
+![Contacts](./screenshots/contacts.png)
 
 ### Analytics & KPI
 
-![Analytics](./screenshots/analytics.png)
+![Analytiques](./screenshots/analytiques.png)
 
-> **Note**: Ajoutez les captures d'écran dans un dossier `screenshots/` à la racine du projet.
+### Paramètres
+
+![Paramètres](./screenshots/paramètres.png)
+
+### PulseBot
+
+![PulsBot](./screenshots/pulsbot1.png)
+![PulsBot](./screenshots/pulsbot2.png)
 
 ---
 
 ## 🎨 Responsive Design
 
-L'interface est entièrement responsive et optimisée pour tous les écrans:
+L'interface est partiellement responsive avec quelques ajustements pour certaines interfaces qui doivent être fait pour que le tout soit vraiment responsive.
 
 - **Mobile** (< 768px): Layout en colonne unique, navigation adaptée
 - **Tablette** (768px - 1024px): Grilles 2 colonnes, sidebar repliable
@@ -283,25 +299,6 @@ Support complet du mode clair/sombre avec `next-themes`:
 
 Le projet est optimisé pour un déploiement sur Vercel:
 
-### Déploiement automatique
-
-1. Connecter le repository GitHub à Vercel
-2. Vercel détecte automatiquement Next.js
-3. Le build et déploiement se font automatiquement à chaque push
-
-### Déploiement manuel
-
-```bash
-# 1. Installer Vercel CLI
-npm i -g vercel
-
-# 2. Build du projet
-npm run build
-
-# 3. Déployer
-vercel --prod
-```
-
 ### Variables d'environnement
 
 Aucune variable d'environnement requise pour la démo (données mock).
@@ -333,8 +330,8 @@ Ce projet s'inspire des meilleures pratiques de:
 
 ## 👨‍💻 Développeur
 
-**Votre Nom Prénom**  
-[GitHub](https://github.com/votre-username) | [LinkedIn](https://linkedin.com/in/votre-profil)
+**Maurille KOMI**  
+[GitHub](https://github.com/18325) |
 
 ---
 
@@ -346,8 +343,8 @@ Ce projet a été développé dans le cadre du test d'intégration HARNIX SAS po
 
 ## 🔗 Liens
 
-- **Repository GitHub**: [https://github.com/votre-username/pulsai-dashboard](https://github.com/votre-username/pulsai-dashboard)
-- **Démo en ligne**: [https://votre-demo.vercel.app](https://votre-demo.vercel.app)
+- **Repository GitHub**: [https://github.com/18325/pulsai-dashboard](https://github.com/18325/pulsai-dashboard)
+- **Démo en ligne**: [https://pulsai-dashboard-maurille.vercel.app/](https://pulsai-dashboard-maurille.vercel.app/)
 
 ---
 

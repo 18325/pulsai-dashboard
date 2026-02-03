@@ -16,8 +16,11 @@ const unbounded = Unbounded({
 });
 
 export const metadata = {
-  title: 'PulsAI Dashboard',
+  title: 'PulsAI',
   description: 'Gérez vos interactions clients avec l\'IA',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 import { Providers } from './providers';
